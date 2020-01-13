@@ -45,7 +45,6 @@ export default class WebScrollView extends Component {
           {messages.map(this.renderItem)}
           {ListFooterComponent()}
         </div>
-      </div>
     );
   }
 }
