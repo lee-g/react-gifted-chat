@@ -190,10 +190,10 @@ class GiftedChat extends React.Component {
   }
 
 
-  renderMessages() {
+   renderMessages() {
     return (
       <div style={{
-        height: 'calc(100% - ${this.state.composerHeight}px)',
+        height: `calc(100% - ${this.state.composerHeight}px)`,
         display: 'flex',
       }}
       >
