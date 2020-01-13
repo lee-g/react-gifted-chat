@@ -56,12 +56,21 @@ export default class MessageContainer extends React.PureComponent {
   };
 
   scrollTo(options) {
-    // this._invertibleScrollViewRef.scrollTo(options);
+    if (this.flatListRef && options) {
+      this.flatListRef.scrollToOffset(options);
+    }
   }
 
+  getMessageContainerHeight() {
+    return this.flatListRef ? this.flatListRef.getWebViewScrollHeight() : 0;
+  }
 
   scrollToBottom = () => {
-    this.scrollTo({ offset: 0, animated: 'true' });
+   let y = 0;
+    if (this.props.inverted) {
+      y = this.getMessageContainerHeight();
+    }
+    this.scrollTo({ y, animated });
   }
 
   renderRow = ({ item, index }) => {
@@ -125,13 +134,14 @@ export default class MessageContainer extends React.PureComponent {
       <View
         style={{ flex: 1 }}
         onLayout={() => {
+            this.scrollToBottom();
           // this.flatListRef.current.scrollTo({x: 0, y: 0, animated: true});
         }
       }
       >
         {this.state.showScrollBottom && this.props.scrollToBottom ? this.renderScrollToBottomWrapper() : null}
         <WebScrollView
-          ref={this.flatListRef}
+          ref={ref => this.flatListRef = ref}
           keyExtractor={this.keyExtractor}
           extraData={this.props.extraData}
           enableEmptySections
