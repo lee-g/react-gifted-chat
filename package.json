@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/batuhansahan/react-gifted-chat.git"
+    "url": "https://github.com/lee-g/react-gifted-chat/react-gifted-chat.git"
   },
   "keywords": [
     "react",
@@ -17,9 +17,9 @@
   "author": "Batuhan Sahan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/batuhansahan/react-gifted-chat.git/issues"
+    "url": "https://github.com/lee-g/react-gifted-chat/issues"
   },
-  "homepage": "https://github.com/batuhansahan/react-gifted-chat.git#readme",
+  "homepage": "https://github.com/lee-g/react-gifted-chat.git#readme",
   "scripts": {
     "lint": "eslint . --ext .js,.jsx",
     "compile": "export BABEL_ENV='production' && rm -rf ./dist && mkdir dist &&  rollup -c -i src/index.js -o dist/index.js"
